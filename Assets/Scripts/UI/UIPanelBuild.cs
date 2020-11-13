@@ -42,4 +42,22 @@ public class UIPanelBuild : MonoBehaviour
         Debug.Log(_toolCount[id]);
         _toolsText[id].text = _toolCount[id].ToString();
     }
+    public void Clear() 
+    {
+        for (int i = 0; i < _foodText.Length; i++)
+        {
+            _foodCount[i] = 0;
+            _foodText[i].text = _foodCount[i].ToString();
+        }
+        for (int i = 0; i < _resourcesText.Length; i++)
+        {
+            _resourcesCount[i] = 0;
+            _resourcesText[i].text = _resourcesCount[i].ToString();
+        }
+        for (int i = 0; i < _toolsText.Length; i++)
+        {
+            _toolCount[i] = 0;
+            _toolsText[i].text = _toolCount[i].ToString();
+        }
+    }
 }

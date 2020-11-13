@@ -76,12 +76,31 @@ public class Build : MonoBehaviour
                 }
             }
         }
+        for (int i = 0; i < _build.SetMaxStoragePlace(PutItemCanType.Material); i++)
+        {
+            if (_build.GetStorage(PutItemCanType.Material, i) != null)
+            {
+                //Debug.Log((Tool)_build.GetStorage(PutItemCanType.Tool, 1));
+                MaterialBuild _material = (MaterialBuild)_build.GetStorage(PutItemCanType.Material, i);
+                switch (_material.ToString())
+                {
+                    case "BuildWood":
+                        _ui.GetComponent<UIPanelBuild>().SetResources(0, 1);
+                        break;
+                    case "BuildStone":
+                        _ui.GetComponent<UIPanelBuild>().SetResources(1, 1);
+                        break;
+                    case "Iron":
+                        _ui.GetComponent<UIPanelBuild>().SetResources(2, 1);
+                        break;
+                }
+            }
+        }
     }
     public void ClearPanelUIRes() 
     {
         
     }
-
     private void OnMouseDown()
     {
         if (_ui.GetComponent<UIPanelBuild>().SetTarget() == this)
@@ -90,6 +109,8 @@ public class Build : MonoBehaviour
         }
         else 
         {
+            _ui.GetComponent<UIPanelBuild>().Clear();
+            SetPanelUIRes();
             _ui.SetActive(true);
             _ui.transform.position = Camera.main.WorldToScreenPoint(transform.position);
             _ui.GetComponent<UIPanelBuild>().GetTarget(this);

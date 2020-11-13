@@ -58,7 +58,7 @@ public class UIBuild : MonoBehaviour
 
     public BuildC GetBuildHouse() 
     {
-        return new BuildC(_buildType, _buildSize, _buildMaterial, GetHealth(), GetBurningRate(), GetLivingPlaces(), GetToolsStorage(), GetFoodStorage(), GetClothlStorage());
+        return new BuildC(_buildType, _buildSize, _buildMaterial, GetHealth(), GetBurningRate(), GetLivingPlaces(), GetToolsStorage(), GetFoodStorage(),GetMaterialStorage(), GetClothlStorage());
     }
 
     ///<returns> Return health for build depending on type, size and material.</returns>

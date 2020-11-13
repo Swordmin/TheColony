@@ -36,7 +36,7 @@ public interface IMaterialCloth
 
 
 #region Material
-public class Iron : IMaterialTool 
+public class Iron : MaterialBuild, IMaterialTool, IItemHouse
 {
     public int _qualityMaterial { get { return 5; } set { _qualityMaterial = value; } }
 }
@@ -44,6 +44,20 @@ public class Stone : IMaterialTool
 {
     public int _qualityMaterial { get { return 2; } set { _qualityMaterial = value; } }
 }
+#endregion
+
+#region MaterialBuild
+public class MaterialBuild : IMaterialBuild, IItemHouse
+{
+
+}
+public class BuildWood : MaterialBuild 
+{
+}
+public class BuildStone : MaterialBuild 
+{
+}
+
 #endregion
 
 #region Tool
